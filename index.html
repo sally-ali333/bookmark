@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <title>bookmark</title>
+
+
+    <!--bootstrap css file-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--main stylesheet file-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-secondary py-5 fs-3 fw-bold">Bookmarker</h1>
+        <hr class="mb-5 text-secondary">
+
+        <!--input section-->
+        <div class="w-75 mx-auto py-5 text-center bg-body-secondary mb-5">
+            <h2 class="mb-5 fs-4 fw-bold">Bookmark your favorite sites</h2>
+            <div class="form-group mb-4 w-75 mx-auto">
+                <label for="SiteName" class="fw-bold mb-1">Site Name</label>
+                <input oninput="validateName()" type="text" class="form-control" id="SiteName"
+                    placeholder="Bookmark Name">
+                <p class="text-danger fw-bold d-none" id="requiredName">Name is required</p>
+                <p class="text-danger fw-bold d-none" id="existName">Name is Exist</p>
+                </p>
+            </div>
+            <div class="form-group mb-4 w-75 mx-auto">
+                <label for="SiteURL" class="fw-bold mb-1">Site URL</label>
+                <input oninput="validateURL();validateRegexURL()" type="url" class="form-control" id="SiteURL"
+                    placeholder="website URL">
+                <p class="text-danger fw-bold d-none" id="requiredURL">URL is required</p>
+                <p class="text-danger fw-bold d-none" id="existURL">URL is Exist</p>
+                <p class="text-danger fw-bold d-none" id="invalidURL">URL is invalid.URL should be
+                    (https://www.sitename.com)
+                </p>
+            </div>
+            <button onclick="addSite()" class="btn btn-primary" id="submitBtn">submit</button>
+            <button onclick="displayUpdatedsite(newIndex)" class="btn btn-warning d-none" id="updateBtn">Update</button>
+        </div>
+
+        <!--search setion-->
+        <div class="w-75 mx-auto py-5 text-center bg-body-secondary mb-5">
+            <div class="form-group mb-4 w-75 mx-auto">
+                <label for="searchSite" class="fw-bold mb-1">Search..</label>
+                <input oninput="searchSiteName(this.value)" type="text" class="form-control" id="searchSite"
+                    placeholder="Site Name">
+            </div>
+        </div>
+
+        <!--result section-->
+        <div class="w-75 mx-auto mb-5 text-center" id="bookmarkList">
+        </div>
+        <hr class="mb-5 text-secondary">
+
+        <!--footer-->
+        <footer>
+            <p class="fw-bold text-secondary">© 2019 Bookmarker Inc.</p>
+        </footer>
+    </div>
+
+    <!--bootstrap js file-->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
